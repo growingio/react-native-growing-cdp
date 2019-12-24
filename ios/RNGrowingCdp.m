@@ -11,6 +11,8 @@
 
 RCT_EXPORT_MODULE(GrowingCDP);
 
+#pragma mark SDK 功能 API
+
 /// 初始化SDK
 /// @param projectId 项目ID
 /// @param dataSourceId 数据源ID
@@ -48,25 +50,11 @@ RCT_REMAP_METHOD(sdkVersion,
     resolve(data);
 }
 
-/// 默认为YES
-/// @param enable 设置为NO可以不采集地理位置的统计信息
-RCT_EXPORT_METHOD(setEnableLocationTrack:(BOOL)enable) {
-    
-}
-
-RCT_REMAP_METHOD(getEnableLocationTrack,
-                 locationTrackResolver:(RCTPromiseResolveBlock)resolve
-                 rejecter:(RCTPromiseRejectBlock)reject) {
-
-    BOOL enable = [Growing getEnableLocationTrack];
-    NSDictionary *data = @{@"debug": @(enable)};
-    resolve(data);
-}
 
 /// 设置项目URL Scheme ,该函数请在main函数第一行调用
 /// @param urlScheme URL Scheme
 RCT_EXPORT_METHOD(setUrlScheme:(NSString *)urlScheme) {
-    
+    [Growing setUrlScheme:urlScheme];
 }
 
 /// 获取 URL Scheme
@@ -95,6 +83,18 @@ RCT_REMAP_METHOD(getFlushInterval,
     resolve(data);
 }
 
+#pragma mark 数据采集发送API
+
+/// 设置 GDPR 生效
+RCT_EXPORT_METHOD(disableDataCollect) {
+    [Growing disableDataCollect];
+}
+
+/// 设置 GDPR 失效
+RCT_EXPORT_METHOD(enableDataCollect) {
+    [Growing enableDataCollect];
+}
+
 RCT_EXPORT_METHOD(setDailyDataLimit:(NSUInteger)limit) {
     [Growing setDailyDataLimit:limit];
 }
@@ -108,46 +108,31 @@ RCT_REMAP_METHOD(getDailyDataLimit,
     resolve(data);
 }
 
-
-/// 设置 GDPR 生效
-RCT_EXPORT_METHOD(disableDataCollect) {
-    [Growing disableDataCollect];
-}
-
-/// 设置 GDPR 失效
-RCT_EXPORT_METHOD(enableDataCollect) {
-    [Growing enableDataCollect];
-}
+#pragma mark 自定义数据上传API
 
 /// 设置登录用户ID
 /// @param userId 登陆用户ID, ID为正常英文数字组合的字符串, 长度<=1000, 请不要含有 "'|\*&$@/', 等特殊字符
 /// ！！！不允许传空或者nil, 如有此操作请调用clearUserId函数
 RCT_EXPORT_METHOD(setUserId:(NSString *)userId) {
-    
+    [Growing setUserId:userId];
 }
 
 /// 清除登录用户ID
 RCT_EXPORT_METHOD(clearUserId) {
-    
-}
-
-/// 发送自定义事件
-/// @param eventId 事件Id, Id为正常英文数字组合的字符串, 长度<=1000, 请不要含有 "'|\*&$@/', 等特殊字符
-RCT_EXPORT_METHOD(track:(NSString *)eventId) {
-    
+    [Growing clearUserId];
 }
 
 /// 发送自定义事件
 /// @param eventId 事件Id, Id为正常英文数字组合的字符串, 长度<=1000, 请不要含有 "'|\*&$@/', 等特殊字符
 /// @param variable 事件变量, 变量不能为nil
 RCT_EXPORT_METHOD(track:(NSString *)eventId withVariable:(NSDictionary<NSString *, id> *)variable) {
-    
+    [Growing track:eventId withVariable:variable];
 }
 
 /// 发送用户事件
 /// @param attributes 事件变量, 变量不能为nil
 RCT_EXPORT_METHOD(setUserAttributes:(NSDictionary<NSString *, id>*)attributes) {
-    
+    [Growing setUserAttributes:attributes];
 }
 
 @end

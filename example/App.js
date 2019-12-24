@@ -63,6 +63,55 @@ const App: () => React$Node = () => {
             }>
             </Button>
 
+            <Button 
+              title = "SDK Version"  
+              onPress={() =>
+                console.log(NativeModules.GrowingCDP.sdkVersion())
+            }>
+            </Button>
+
+            <Button 
+              title = "Set URL Scheme"  
+              onPress={() =>
+                NativeModules.GrowingCDP.setUrlScheme("url scheme")
+            }>
+            </Button>
+
+            <Button 
+              title = "Get URL Scheme"  
+              onPress={() =>
+                console.log(NativeModules.GrowingCDP.getUrlScheme())
+            }>
+            </Button>
+
+            <Button 
+              title = "Set UserId"  
+              onPress={() =>
+                NativeModules.GrowingCDP.setUserId("userId")
+            }>
+            </Button>
+
+            <Button 
+              title = "Clean UserId"  
+              onPress={() =>
+                NativeModules.GrowingCDP.clearUserId()
+            }>
+            </Button>
+
+            <Button 
+              title = "Track Event"  
+              onPress={() =>
+                NativeModules.GrowingCDP.track("onHomeButonClicked", {name:"GrowingIO", title:"GrowingCDP"})
+            }>
+            </Button>
+
+            <Button 
+              title = "Set UserAttributes"  
+              onPress={() =>
+                NativeModules.GrowingCDP.setUserAttributes({name:"GrowingIO", project:"GrowingCDP"})
+            }>
+            </Button>
+
           </View>
             
           </View>
