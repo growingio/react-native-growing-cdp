@@ -81,7 +81,7 @@ RCT_REMAP_METHOD(getSessionId,
     
     NSString *sessionId = [Growing getSessionId];
     NSDictionary *data = @{@"sessionId": sessionId};
-    resolve(data);
+    resolve(sessionId);
 }
 
 #pragma mark 数据采集发送API

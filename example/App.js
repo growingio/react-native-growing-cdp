@@ -12,7 +12,6 @@ import {
   StyleSheet,
   ScrollView,
   View,
-  Text,
   StatusBar,
   Button,
   NativeModules
@@ -21,6 +20,42 @@ import {
 import {
   Colors
 } from 'react-native/Libraries/NewAppScreen';
+
+async function _getSDKVersion() {
+  try {
+    var {version} = await NativeModules.GrowingCDP.sdkVersion();
+    console.log('version = ' + version);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+async function _getDeviceId() {
+  try {
+    var {deviceId} = await NativeModules.GrowingCDP.getDeviceId();
+    console.log('deviceId = ' + deviceId);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+async function _getVisitUserId() {
+  try {
+    var {visitUserId} = await NativeModules.GrowingCDP.getVisitUserId();
+    console.log('visitUserId = ' + visitUserId);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+async function _getSessionId() {
+  try {
+    var {sessionId} = await NativeModules.GrowingCDP.getSessionId();
+    console.log('sessionId = ' + sessionId);
+  } catch (e) {
+    console.error(e);
+  }
+}
 
 const App: () => React$Node = () => {
   return (
@@ -38,7 +73,7 @@ const App: () => React$Node = () => {
             <Button 
               title = "SDK Version"  
               onPress={() =>
-                console.log(NativeModules.GrowingCDP.sdkVersion())
+                _getSDKVersion()
             }>
             </Button>
 
@@ -87,21 +122,21 @@ const App: () => React$Node = () => {
             <Button 
               title = "Get DeviceId"  
               onPress={() =>
-                console.log(NativeModules.GrowingCDP.getDeviceId())
+                _getDeviceId()
             }>
             </Button>
 
             <Button 
               title = "Get VisitUserId"  
               onPress={() =>
-                console.log(NativeModules.GrowingCDP.getVisitUserId())
+                _getVisitUserId()
             }>
             </Button>
 
             <Button 
               title = "Get SessionId"  
               onPress={() =>
-                console.log(NativeModules.GrowingCDP.getSessionId())
+                _getSessionId()
             }>
             </Button>
 

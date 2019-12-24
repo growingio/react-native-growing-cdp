@@ -95570,53 +95570,179 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   });
   exports.default = void 0;
 
-  var _react = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[1], "react"));
+  var _regenerator = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[1], "@babel/runtime/regenerator"));
 
-  var _reactNative = _$$_REQUIRE(_dependencyMap[2], "react-native");
+  var _react = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "react"));
 
-  var _NewAppScreen = _$$_REQUIRE(_dependencyMap[3], "react-native/Libraries/NewAppScreen");
+  var _reactNative = _$$_REQUIRE(_dependencyMap[3], "react-native");
+
+  var _NewAppScreen = _$$_REQUIRE(_dependencyMap[4], "react-native/Libraries/NewAppScreen");
 
   var _jsxFileName = "/Users/beyondchao/react-native-growing-cdp/example/App.js";
+
+  function _getSDKVersion() {
+    var _ref, version;
+
+    return _regenerator.default.async(function _getSDKVersion$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.prev = 0;
+            _context.next = 3;
+            return _regenerator.default.awrap(_reactNative.NativeModules.GrowingCDP.sdkVersion());
+
+          case 3:
+            _ref = _context.sent;
+            version = _ref.version;
+            console.log('version = ' + version);
+            _context.next = 11;
+            break;
+
+          case 8:
+            _context.prev = 8;
+            _context.t0 = _context["catch"](0);
+            console.error(_context.t0);
+
+          case 11:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, null, null, [[0, 8]]);
+  }
+
+  function _getDeviceId() {
+    var _ref2, deviceId;
+
+    return _regenerator.default.async(function _getDeviceId$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.prev = 0;
+            _context2.next = 3;
+            return _regenerator.default.awrap(_reactNative.NativeModules.GrowingCDP.getDeviceId());
+
+          case 3:
+            _ref2 = _context2.sent;
+            deviceId = _ref2.deviceId;
+            console.log('deviceId = ' + deviceId);
+            _context2.next = 11;
+            break;
+
+          case 8:
+            _context2.prev = 8;
+            _context2.t0 = _context2["catch"](0);
+            console.error(_context2.t0);
+
+          case 11:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, null, null, [[0, 8]]);
+  }
+
+  function _getVisitUserId() {
+    var _ref3, visitUserId;
+
+    return _regenerator.default.async(function _getVisitUserId$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.prev = 0;
+            _context3.next = 3;
+            return _regenerator.default.awrap(_reactNative.NativeModules.GrowingCDP.getVisitUserId());
+
+          case 3:
+            _ref3 = _context3.sent;
+            visitUserId = _ref3.visitUserId;
+            console.log('visitUserId = ' + visitUserId);
+            _context3.next = 11;
+            break;
+
+          case 8:
+            _context3.prev = 8;
+            _context3.t0 = _context3["catch"](0);
+            console.error(_context3.t0);
+
+          case 11:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, null, null, [[0, 8]]);
+  }
+
+  function _getSessionId() {
+    var _ref4, sessionId;
+
+    return _regenerator.default.async(function _getSessionId$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.prev = 0;
+            _context4.next = 3;
+            return _regenerator.default.awrap(_reactNative.NativeModules.GrowingCDP.getSessionId());
+
+          case 3:
+            _ref4 = _context4.sent;
+            sessionId = _ref4.sessionId;
+            console.log('sessionId = ' + sessionId);
+            _context4.next = 11;
+            break;
+
+          case 8:
+            _context4.prev = 8;
+            _context4.t0 = _context4["catch"](0);
+            console.error(_context4.t0);
+
+          case 11:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, null, null, [[0, 8]]);
+  }
 
   var App = function App() {
     return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactNative.StatusBar, {
       barStyle: "dark-content",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 63
       }
     }), _react.default.createElement(_reactNative.SafeAreaView, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 64
       }
     }, _react.default.createElement(_reactNative.ScrollView, {
       contentInsetAdjustmentBehavior: "automatic",
       style: styles.scrollView,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 65
       }
     }, _react.default.createElement(_reactNative.View, {
       style: styles.body,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 70
       }
     }, _react.default.createElement(_reactNative.View, {
       style: styles.sectionContainer,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36
+        lineNumber: 71
       }
     }, _react.default.createElement(_reactNative.Button, {
       title: "SDK Version",
       onPress: function onPress() {
-        return console.log(_reactNative.NativeModules.GrowingCDP.sdkVersion());
+        return _getSDKVersion();
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 73
       }
     }), _react.default.createElement(_reactNative.Button, {
       title: "Enable GDPR",
@@ -95625,7 +95751,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 80
       }
     }), _react.default.createElement(_reactNative.Button, {
       title: "Disable GDPR",
@@ -95634,7 +95760,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52
+        lineNumber: 87
       }
     }), _react.default.createElement(_reactNative.Button, {
       title: "Set UserId",
@@ -95643,7 +95769,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59
+        lineNumber: 94
       }
     }), _react.default.createElement(_reactNative.Button, {
       title: "Clean UserId",
@@ -95652,7 +95778,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66
+        lineNumber: 101
       }
     }), _react.default.createElement(_reactNative.Button, {
       title: "Track Event",
@@ -95664,7 +95790,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 73
+        lineNumber: 108
       }
     }), _react.default.createElement(_reactNative.Button, {
       title: "Set UserAttributes",
@@ -95676,34 +95802,34 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 80
+        lineNumber: 115
       }
     }), _react.default.createElement(_reactNative.Button, {
       title: "Get DeviceId",
       onPress: function onPress() {
-        return console.log(_reactNative.NativeModules.GrowingCDP.getDeviceId());
+        return _getDeviceId();
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 87
+        lineNumber: 122
       }
     }), _react.default.createElement(_reactNative.Button, {
       title: "Get VisitUserId",
       onPress: function onPress() {
-        return console.log(_reactNative.NativeModules.GrowingCDP.getVisitUserId());
+        return _getVisitUserId();
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94
+        lineNumber: 129
       }
     }), _react.default.createElement(_reactNative.Button, {
       title: "Get SessionId",
       onPress: function onPress() {
-        return console.log(_reactNative.NativeModules.GrowingCDP.getSessionId());
+        return _getSessionId();
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 101
+        lineNumber: 136
       }
     }), _react.default.createElement(_reactNative.Button, {
       title: "Set GeoLocation",
@@ -95712,7 +95838,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 108
+        lineNumber: 143
       }
     }), _react.default.createElement(_reactNative.Button, {
       title: "Clean GeoLocation",
@@ -95721,7 +95847,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 115
+        lineNumber: 150
       }
     }))))));
   };
@@ -95773,7 +95899,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   var _c;
 
   $RefreshReg$(_c, "App");
-},445,[1,56,2,446],"App.js");
+},445,[1,110,56,2,446],"App.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   'use strict';
 
