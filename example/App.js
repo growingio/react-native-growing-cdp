@@ -83,6 +83,27 @@ const App: () => React$Node = () => {
                 NativeModules.GrowingCDP.setUserAttributes({name:"GrowingIO", project:"GrowingCDP"})
             }>
             </Button>
+            
+            <Button 
+              title = "Get DeviceId"  
+              onPress={() =>
+                console.log(NativeModules.GrowingCDP.getDeviceId())
+            }>
+            </Button>
+
+            <Button 
+              title = "Get VisitUserId"  
+              onPress={() =>
+                console.log(NativeModules.GrowingCDP.getVisitUserId())
+            }>
+            </Button>
+
+            <Button 
+              title = "Get SessionId"  
+              onPress={() =>
+                console.log(NativeModules.GrowingCDP.getSessionId())
+            }>
+            </Button>
 
             <Button 
               title = "Set GeoLocation"  

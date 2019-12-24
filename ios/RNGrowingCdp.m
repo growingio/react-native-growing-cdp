@@ -57,6 +57,33 @@ RCT_REMAP_METHOD(sdkVersion,
     resolve(data);
 }
 
+RCT_REMAP_METHOD(getDeviceId,
+                 deviceIdResolver:(RCTPromiseResolveBlock)resolve
+                rejecter:(RCTPromiseRejectBlock)reject) {
+    
+    NSString *deviceId = [Growing getDeviceId];
+    NSDictionary *data = @{@"deviceId": deviceId};
+    resolve(data);
+}
+
+RCT_REMAP_METHOD(getVisitUserId,
+                 visitUserResolver:(RCTPromiseResolveBlock)resolve
+                rejecter:(RCTPromiseRejectBlock)reject) {
+    
+    NSString *visitUserId = [Growing getVisitUserId];
+    NSDictionary *data = @{@"visitUserId": visitUserId};
+    resolve(data);
+}
+
+RCT_REMAP_METHOD(getSessionId,
+                 sessionIdResolver:(RCTPromiseResolveBlock)resolve
+                rejecter:(RCTPromiseRejectBlock)reject) {
+    
+    NSString *sessionId = [Growing getSessionId];
+    NSDictionary *data = @{@"sessionId": sessionId};
+    resolve(data);
+}
+
 #pragma mark 数据采集发送API
 
 /// 设置 GDPR 生效

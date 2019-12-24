@@ -95610,49 +95610,118 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
         lineNumber: 36
       }
     }, _react.default.createElement(_reactNative.Button, {
-      title: "Start Project",
-      onPress: function onPress() {
-        return _reactNative.NativeModules.GrowingCDP.startWithProjectId("projectId", "dataSourceId");
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 38
-      }
-    }), _react.default.createElement(_reactNative.Button, {
-      title: "Set Track Host",
-      onPress: function onPress() {
-        return _reactNative.NativeModules.GrowingCDP.setTrackerHost("host");
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 45
-      }
-    }), _react.default.createElement(_reactNative.Button, {
-      title: "Enable Debug Mode",
-      onPress: function onPress() {
-        return _reactNative.NativeModules.GrowingCDP.setEnableDebugMode(true);
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 52
-      }
-    }), _react.default.createElement(_reactNative.Button, {
-      title: "Disable Debug Mode",
-      onPress: function onPress() {
-        return _reactNative.NativeModules.GrowingCDP.setEnableDebugMode(false);
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 59
-      }
-    }), _react.default.createElement(_reactNative.Button, {
       title: "SDK Version",
       onPress: function onPress() {
         return console.log(_reactNative.NativeModules.GrowingCDP.sdkVersion());
       },
       __source: {
         fileName: _jsxFileName,
+        lineNumber: 38
+      }
+    }), _react.default.createElement(_reactNative.Button, {
+      title: "Enable GDPR",
+      onPress: function onPress() {
+        return console.log(_reactNative.NativeModules.GrowingCDP.disableDataCollect());
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 45
+      }
+    }), _react.default.createElement(_reactNative.Button, {
+      title: "Disable GDPR",
+      onPress: function onPress() {
+        return console.log(_reactNative.NativeModules.GrowingCDP.enableDataCollect());
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 52
+      }
+    }), _react.default.createElement(_reactNative.Button, {
+      title: "Set UserId",
+      onPress: function onPress() {
+        return _reactNative.NativeModules.GrowingCDP.setUserId("userId");
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 59
+      }
+    }), _react.default.createElement(_reactNative.Button, {
+      title: "Clean UserId",
+      onPress: function onPress() {
+        return _reactNative.NativeModules.GrowingCDP.clearUserId();
+      },
+      __source: {
+        fileName: _jsxFileName,
         lineNumber: 66
+      }
+    }), _react.default.createElement(_reactNative.Button, {
+      title: "Track Event",
+      onPress: function onPress() {
+        return _reactNative.NativeModules.GrowingCDP.track("onHomeButonClicked", {
+          name: "GrowingIO",
+          title: "GrowingCDP"
+        });
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 73
+      }
+    }), _react.default.createElement(_reactNative.Button, {
+      title: "Set UserAttributes",
+      onPress: function onPress() {
+        return _reactNative.NativeModules.GrowingCDP.setUserAttributes({
+          name: "GrowingIO",
+          project: "GrowingCDP"
+        });
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 80
+      }
+    }), _react.default.createElement(_reactNative.Button, {
+      title: "Get DeviceId",
+      onPress: function onPress() {
+        return console.log(_reactNative.NativeModules.GrowingCDP.getDeviceId());
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 87
+      }
+    }), _react.default.createElement(_reactNative.Button, {
+      title: "Get VisitUserId",
+      onPress: function onPress() {
+        return console.log(_reactNative.NativeModules.GrowingCDP.getVisitUserId());
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 94
+      }
+    }), _react.default.createElement(_reactNative.Button, {
+      title: "Get SessionId",
+      onPress: function onPress() {
+        return console.log(_reactNative.NativeModules.GrowingCDP.getSessionId());
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 101
+      }
+    }), _react.default.createElement(_reactNative.Button, {
+      title: "Set GeoLocation",
+      onPress: function onPress() {
+        return _reactNative.NativeModules.GrowingCDP.setGeoLocation(0.0, 0.0);
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 108
+      }
+    }), _react.default.createElement(_reactNative.Button, {
+      title: "Clean GeoLocation",
+      onPress: function onPress() {
+        return _reactNative.NativeModules.GrowingCDP.clearGeoLocation();
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 115
       }
     }))))));
   };
