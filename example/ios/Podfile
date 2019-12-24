@@ -34,8 +34,10 @@ target 'GrowingReactNativeCDP' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  # Develop
   pod 'RNGrowingCdp', :path => '../../ios/'
-
+  # Release
+  # pod 'RNGrowingCdp', :podspec => '../node_modules/react-native-growing-cdp/RNGrowingCdp.podspec'
   
   target 'GrowingReactNativeCDPTests' do
     inherit! :search_paths

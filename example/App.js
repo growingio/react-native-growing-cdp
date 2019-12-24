@@ -36,34 +36,6 @@ const App: () => React$Node = () => {
             <View style={styles.sectionContainer}>
               
             <Button 
-              title = "Start Project"  
-              onPress={() =>
-                NativeModules.GrowingCDP.startWithProjectId("projectId", "dataSourceId")      
-            }>
-            </Button>
-              
-            <Button 
-              title = "Set Track Host"  
-              onPress={() =>
-                NativeModules.GrowingCDP.setTrackerHost("host")      
-            }>
-            </Button>
-
-            <Button 
-              title = "Enable Debug Mode"  
-              onPress={() =>
-                NativeModules.GrowingCDP.setEnableDebugMode(true)      
-            }>
-            </Button>
-
-            <Button 
-              title = "Disable Debug Mode"  
-              onPress={() =>
-                NativeModules.GrowingCDP.setEnableDebugMode(false)      
-            }>
-            </Button>
-
-            <Button 
               title = "SDK Version"  
               onPress={() =>
                 console.log(NativeModules.GrowingCDP.sdkVersion())
@@ -71,16 +43,16 @@ const App: () => React$Node = () => {
             </Button>
 
             <Button 
-              title = "Set URL Scheme"  
+              title = "Enable GDPR"  
               onPress={() =>
-                NativeModules.GrowingCDP.setUrlScheme("url scheme")
+                console.log(NativeModules.GrowingCDP.disableDataCollect())
             }>
             </Button>
 
             <Button 
-              title = "Get URL Scheme"  
+              title = "Disable GDPR"  
               onPress={() =>
-                console.log(NativeModules.GrowingCDP.getUrlScheme())
+                console.log(NativeModules.GrowingCDP.enableDataCollect())
             }>
             </Button>
 
@@ -109,6 +81,20 @@ const App: () => React$Node = () => {
               title = "Set UserAttributes"  
               onPress={() =>
                 NativeModules.GrowingCDP.setUserAttributes({name:"GrowingIO", project:"GrowingCDP"})
+            }>
+            </Button>
+
+            <Button 
+              title = "Set GeoLocation"  
+              onPress={() =>
+                NativeModules.GrowingCDP.setGeoLocation(0.0, 0.0)
+            }>
+            </Button>
+
+            <Button 
+              title = "Clean GeoLocation"  
+              onPress={() =>
+                NativeModules.GrowingCDP.clearGeoLocation()
             }>
             </Button>
 

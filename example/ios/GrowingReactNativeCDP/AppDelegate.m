@@ -10,6 +10,7 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <RNGrowingCdp.h>
 
 @implementation AppDelegate
 
@@ -27,6 +28,13 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  
+  [RNGrowingCdp startWithProjectId:@"YOUR_PROJECT_ID" dataSourceId:@"YOUR_DATASOURCE_ID"];
+  [RNGrowingCdp setEnableDebugMode:YES];
+  [RNGrowingCdp setFlushInterval:10];
+//  [RNGrowingCdp setTrackerHost:@"http://www.growingio.com"];
+//  [RNGrowingCdp setDailyDataLimit:10]; // setting 10KB data limit
+  
   return YES;
 }
 
