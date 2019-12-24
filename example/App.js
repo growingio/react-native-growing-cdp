@@ -39,10 +39,30 @@ const App: () => React$Node = () => {
               title = "Start Project"  
               onPress={() =>
                 NativeModules.GrowingCDP.startWithProjectId("projectId", "dataSourceId")      
-            }
-            >
+            }>
             </Button>
               
+            <Button 
+              title = "Set Track Host"  
+              onPress={() =>
+                NativeModules.GrowingCDP.setTrackerHost("host")      
+            }>
+            </Button>
+
+            <Button 
+              title = "Enable Debug Mode"  
+              onPress={() =>
+                NativeModules.GrowingCDP.setEnableDebugMode(true)      
+            }>
+            </Button>
+
+            <Button 
+              title = "Disable Debug Mode"  
+              onPress={() =>
+                NativeModules.GrowingCDP.setEnableDebugMode(false)      
+            }>
+            </Button>
+
           </View>
             
           </View>

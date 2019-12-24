@@ -18,6 +18,12 @@ RCT_EXPORT_METHOD(startWithProjectId:(NSString *)projectId dataSourceId:(NSStrin
     [Growing startWithAccountId:projectId dataSourceId:dataSourceId];
 }
 
+/// 设置数据收集平台服务器地址
+/// @param host 私部的域名
+RCT_EXPORT_METHOD(setTrackerHost:(NSString *)host) {
+    [Growing setTrackerHost:host];
+}
+
 /// 命令行输出调试日志，默认为NO
 /// @param enable 是否打开日志
 RCT_EXPORT_METHOD(setEnableDebugMode:(BOOL)enable) {
@@ -30,6 +36,15 @@ RCT_REMAP_METHOD(getEnableDebugMode,
     
     BOOL enable = [Growing getEnableLog];
     NSDictionary *data = @{@"debug": @(enable)};
+    resolve(data);
+}
+
+RCT_REMAP_METHOD(sdkVersion,
+                 sdkVersionResolver:(RCTPromiseResolveBlock)resolve
+                rejecter:(RCTPromiseRejectBlock)reject) {
+    
+    NSString *version = [Growing sdkVersion];
+    NSDictionary *data = @{@"version": version};
     resolve(data);
 }
 
@@ -46,12 +61,6 @@ RCT_REMAP_METHOD(getEnableLocationTrack,
     BOOL enable = [Growing getEnableLocationTrack];
     NSDictionary *data = @{@"debug": @(enable)};
     resolve(data);
-}
-
-/// 设置数据收集平台服务器地址
-/// @param host 私部的域名
-RCT_EXPORT_METHOD(setTrackerHost:(NSString *)host) {
-    
 }
 
 /// 设置项目URL Scheme ,该函数请在main函数第一行调用

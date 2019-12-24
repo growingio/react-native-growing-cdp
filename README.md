@@ -47,14 +47,13 @@
 ```javascript
 import RNGrowingCdp from 'react-native-growing-cdp';
 
-// TODO: What to do with the module?
 RNGrowingCdp;
 ```
 
 ## API 说明
 
-### 1 设置弹窗开关
-#### 1.1 `NativeModules.GrowingCDP.startWithProjectId("projectId", "dataSourceId")`
+### 1 初始化SDK
+#### 1.1 `NativeModules.GrowingCDP.startWithProjectId("YOUR_PROJECT_ID", "YOUR_DATASOURCE_ID")`
 
 初始化 SDK，设置项目ID和数据源ID
 
@@ -68,3 +67,56 @@ dataSourceId|string|是|无|数据源ID
 ```javascript
 NativeModules.GrowingCDP.startWithProjectId("projectId", "dataSourceId")
 ```
+
+---
+
+### 2 设置数据收集平台服务器地址
+#### 2.1 `NativeModules.GrowingCDP.setTrackerHost("YOUR_TRACK_HOST")`
+
+设置私部服务地址，例如：http://www.growingio.com
+
+#### 2.2 参数说明
+参数名|类型|必填|默认值|说明
+:---:|:---:|:---:|:---:|:---:
+host|string|是|无|私部服务的地址
+
+#### 2.3 代码示例
+```javascript
+NativeModules.GrowingCDP.setTrackerHost("host")
+```
+
+---
+
+### 3 采集日志开关
+#### 3.1 `NativeModules.GrowingCDP.setEnableDebugMode(true)`
+
+采集日志开关，为true时，会输出调试日志。
+
+#### 3.2 参数说明
+参数名|类型|必填|默认值|说明
+:---:|:---:|:---:|:---:|:---:
+enable|boolean|是|false|是否打开输出调试日志
+
+#### 3.3 代码示例
+```javascript
+NativeModules.GrowingCDP.setEnableDebugMode(true)
+```
+
+---
+
+### 4 获取SDK版本
+#### 3.1 `NativeModules.GrowingCDP.sdkVersion`
+
+获取SDK版本信息
+
+#### 3.2 参数说明
+参数名|类型|必填|默认值|说明
+:---:|:---:|:---:|:---:|:---:
+无|无|string|无|获取SDK版本信息
+
+#### 3.3 代码示例
+```javascript
+NativeModules.GrowingCDP.setEnableDebugMode(true)
+```
+
+---
