@@ -14,10 +14,9 @@
 
 #### iOS
 
-1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-growing-cdp` and add `RNGrowingCdp.xcodeproj`
-3. In XCode, in the project navigator, select your project. Add `libRNGrowingCdp.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-4. Run your project (`Cmd+R`)<
+1. 在Podfile 文件中添加 **pod 'RNGrowingCdp', :podspec => '../node_modules/react-native-growing-cdp/RNGrowingCdp.podspec'** 
+2. 在Podfile 同级目录中 执行 **pod install**
+3. 打开目录下的 YOUR_PROJECT.xcworkspace 
 
 #### Android
 
@@ -34,21 +33,6 @@
       compile project(':react-native-growing-cdp')
   	```
 
-#### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
-
-1. In Visual Studio add the `RNGrowingCdp.sln` in `node_modules/react-native-growing-cdp/windows/RNGrowingCdp.sln` folder to their solution, reference from their app.
-2. Open up your `MainPage.cs` app
-  - Add `using Growing.Cdp.RNGrowingCdp;` to the usings at the top of the file
-  - Add `new RNGrowingCdpPackage()` to the `List<IReactPackage>` returned by the `Packages` method
-
-
-## Usage
-```javascript
-import RNGrowingCdp from 'react-native-growing-cdp';
-
-RNGrowingCdp;
-```
 
 ## API 说明
 
@@ -60,6 +44,9 @@ RNGrowingCdp;
 
 [iOS](https://github.com/growingio/react-native-growing-cdp/tree/master/example/ios)
 
+1. iOS 需要手动在工程中添加 URL Scheme, 这个 URL Scheme 是[创建应用](https://docs.growingio.com/docs/product-manual/sysmanage/projectmange/application-manage#chuang-jian-ying-yong)时生成的
+
+![iOS URL Scheme](media/ios_url_scheme.png)
 ---
 
 ### 2 获取SDK版本
