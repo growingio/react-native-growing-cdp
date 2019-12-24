@@ -38,7 +38,7 @@ const App: () => React$Node = () => {
             <Button 
               title = "SDK Version"  
               onPress={() =>
-                NativeModules.GrowingCDP.getVisitUserId().then(Version => {
+                NativeModules.GrowingCDP.sdkVersion().then(Version => {
                  console.log(`Version is ${Version}`)
                 })
             }>
