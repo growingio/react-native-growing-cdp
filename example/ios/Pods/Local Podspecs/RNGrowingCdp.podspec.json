@@ -1,0 +1,41 @@
+{
+  "name": "RNGrowingCdp",
+  "version": "1.0.0",
+  "summary": "RNGrowingCdp",
+  "description": "This Pod contains GrowingIO SDK -- RNGrowingCDPSDK. For more informations, please read http://help.growingio.com/ (in Chinese).",
+  "homepage": "https://www.growingio.com/",
+  "license": "MIT",
+  "authors": {
+    "author": "author@domain.cn"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/growingio/react-native-growing-cdp.git",
+    "tag": "master"
+  },
+  "source_files": "*.{h,m}",
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "frameworks": [
+    "Foundation",
+    "Security",
+    "CoreTelephony",
+    "SystemConfiguration",
+    "CoreLocation",
+    "JavaScriptCore"
+  ],
+  "libraries": [
+    "icucore",
+    "sqlite3"
+  ],
+  "vendored_frameworks": "*.framework",
+  "dependencies": {
+    "React": [
+
+    ]
+  }
+}
