@@ -38,7 +38,9 @@ const App: () => React$Node = () => {
             <Button 
               title = "SDK Version"  
               onPress={() =>
-                console.log(NativeModules.GrowingCDP.sdkVersion())
+                NativeModules.GrowingCDP.getVisitUserId().then(Version => {
+                 console.log(`Version is ${Version}`)
+                })
             }>
             </Button>
 
@@ -86,22 +88,29 @@ const App: () => React$Node = () => {
             
             <Button 
               title = "Get DeviceId"  
-              onPress={() =>
-                console.log(NativeModules.GrowingCDP.getDeviceId())
+              onPress={() =>{
+                NativeModules.GrowingCDP.getDeviceId().then(deviceId => {
+                  console.log(`deviceId is ${deviceId}`);
+                });
+              }
             }>
             </Button>
 
             <Button 
               title = "Get VisitUserId"  
               onPress={() =>
-                console.log(NativeModules.GrowingCDP.getVisitUserId())
+                NativeModules.GrowingCDP.getVisitUserId().then(visitUserId => {
+                  console.log(`visitUserId is ${visitUserId}`)
+                })
             }>
             </Button>
 
             <Button 
               title = "Get SessionId"  
               onPress={() =>
-                console.log(NativeModules.GrowingCDP.getSessionId())
+               NativeModules.GrowingCDP.getSessionId().then(sessionId => {
+                 console.log(`sessionId is ${sessionId}`)
+               })
             }>
             </Button>
 
