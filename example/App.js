@@ -47,14 +47,14 @@ const App: () => React$Node = () => {
             <Button 
               title = "Enable GDPR"  
               onPress={() =>
-                console.log(NativeModules.GrowingCDP.disableDataCollect())
+                console.log(NativeModules.GrowingCDP.enableDataCollect())
             }>
             </Button>
 
             <Button 
               title = "Disable GDPR"  
               onPress={() =>
-                console.log(NativeModules.GrowingCDP.enableDataCollect())
+                console.log(NativeModules.GrowingCDP.disableDataCollect())
             }>
             </Button>
 
@@ -62,6 +62,15 @@ const App: () => React$Node = () => {
               title = "Set UserId"  
               onPress={() =>
                 NativeModules.GrowingCDP.setUserId("userId")
+            }>
+            </Button>
+
+            <Button
+              title = "send visit event"
+              onPress={() =>{
+                NativeModules.GrowingCDP.setUserId("userId")
+                NativeModules.GrowingCDP.setUserId("wasai")
+              }
             }>
             </Button>
 
@@ -75,7 +84,7 @@ const App: () => React$Node = () => {
             <Button 
               title = "Track Event"  
               onPress={() =>
-                NativeModules.GrowingCDP.track("onHomeButonClicked", {name:"GrowingIO", title:"GrowingCDP"})
+                NativeModules.GrowingCDP.track("onHomeButonClicked", {"name":"GrowingIO", "title":"GrowingCDP"})
             }>
             </Button>
 
@@ -117,7 +126,7 @@ const App: () => React$Node = () => {
             <Button 
               title = "Set GeoLocation"  
               onPress={() =>
-                NativeModules.GrowingCDP.setGeoLocation(0.0, 0.0)
+                NativeModules.GrowingCDP.setGeoLocation(1.233, 23.4553335)
             }>
             </Button>
 

@@ -190,7 +190,7 @@ dependencies {
         implementation jscFlavor
     }
 
-    implementation "com.growingio.android.test:t-vds-android-agent:RN-cdp-2.8.9-beta"
+    implementation "com.growingio.android.test:t-vds-android-agent:RN-cdp-2.0-beta"
 //    implementation "com.growingio.android:vds-android-agent:RN-cdp-1.0"
 }
 
