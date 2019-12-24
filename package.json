@@ -2,16 +2,23 @@
 {
   "name": "react-native-growing-cdp",
   "version": "1.0.0",
-  "description": "",
+  "description": "Growing CDP for React Native",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "GrowingIO",
+    "GrowingCDP"
   ],
-  "author": "",
-  "license": "",
+  "repository": {
+    "url": "https://github.com/growingio/react-native-growing-cdp.git", 
+    "type": "git"
+  },
+  "author": "support@growingio.com",
+  "license": "MIT",
+  "homepage": "https://www.growingio.com/",
   "peerDependencies": {
     "react-native": "^0.41.2",
     "react-native-windows": "0.41.0-rc.1"

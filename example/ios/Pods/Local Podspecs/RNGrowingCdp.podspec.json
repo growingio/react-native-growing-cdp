@@ -15,8 +15,9 @@
     "git": "https://github.com/growingio/react-native-growing-cdp.git",
     "tag": "master"
   },
-  "source_files": "*.{h,m}",
+  "source_files": "ios/*.{h,m}",
   "requires_arc": true,
+  "static_framework": true,
   "pod_target_xcconfig": {
     "OTHER_LDFLAGS": "-lObjC"
   },
@@ -32,7 +33,7 @@
     "icucore",
     "sqlite3"
   ],
-  "vendored_frameworks": "*.framework",
+  "vendored_frameworks": "ios/*.framework",
   "dependencies": {
     "React": [
 
