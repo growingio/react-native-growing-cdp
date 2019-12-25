@@ -57,7 +57,7 @@ public class MainApplication extends Application implements ReactApplication {
                       .setProjectId("test-debug")
                       .setURLScheme("growing.ssssss")
                       .setDataSourceId("ssggg")
-                      .setTestMode(true)
+                      .setTestMode(BuildConfig.DEBUG)
                       .setDebugMode(true)
 //                      .setTrackerHost("http://192.168.53.202:1598/")
                       .setTrackerHost("http://52.81.35.212:1598/")

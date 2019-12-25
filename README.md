@@ -19,20 +19,116 @@
 3. In XCode, in the project navigator, select your project. Add `libRNGrowingCdp.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
 
-#### Android
+#### Android 集成步骤  
 
-1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.reactlibrary.RNGrowingCdpPackage;` to the imports at the top of the file
-  - Add `new RNGrowingCdpPackage()` to the list returned by the `getPackages()` method
-2. Append the following lines to `android/settings.gradle`:
-  	```
-  	include ':react-native-growing-cdp'
-  	project(':react-native-growing-cdp').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-growing-cdp/android')
-  	```
-3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-  	```
-      compile project(':react-native-growing-cdp')
-  	```
+> 说明：  
+Gradle 编译环境：Android Studio  
+支持系统版本：Android 4.2 - 10。对Android 4.2以下的手机设备不采集数据。
+
+##### 1. 导入 SDK 
+
+> 编辑文件 `app/build.gradle` 
+
+添加 vds-android-agent 依赖：  
+
+
+```groovy
+android {
+  dependencies{
+    implementation "com.growingio.android:vds-android-agent:RN-cdp-1.0"
+  }
+}
+```
+
+##### 2. 初始化 SDK
+
+> 编辑文件 `android/app/src/main/java/[...]/MainApplication.java`  
+
+添加 SDK 初始化代码和 GrowingIOPackage :  
+
+
+```java
+import com.facebook.react.ReactPackage;
+import com.growingio.android.plugin.rn.GrowingIOPackage;
+import com.growingio.android.sdk.collection.Configuration;
+import com.growingio.android.sdk.collection.GrowingIO;
+
+public class MainApplication extends Application implements ReactApplication {
+
+  public List<ReactPackage> getPackages() {
+    return Arrays.<ReactPackage>asList(
+          new MainReactPackage(),
+        // 此处加入GrowingIO Package
+          new GrowingIOPackage()
+    );
+  }
+
+  @Override
+  public void onCreate() {
+    super.onCreate();
+      // 在 onCreate 方法中初始化 GIO SDK
+      GrowingIO.startWithConfiguration(this, new Configuration()
+                      .setProjectId("您的项目ID")
+                      .setURLScheme("您的 URL Scheme")
+                      .setDataSourceId("您的数据源ID")
+                      .setTestMode(BuildConfig.DEBUG)
+                      .setDebugMode(BuildConfig.DEBUG)
+                      .setTrackerHost("您的 Host 配置")
+                      .setChannel("XXX应用商店")
+      );
+  }
+}
+```   
+
+##### 3.添加应用权限  
+
+> 编辑文件 `android/app/src/main/AndroidManifest.xml`    
+
+将以下权限添加到你的 AndroidManifest.xml 中，其中 READ_PHONE_STATE 权限是可选的，需要用户主动申请，如果没有此权限将不能自动采集 imei 信息
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.cdpdemo">
+
+    <!--    GIO 需要的权限  -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--    GIO 需要的权限  -->
+       
+</manifest>
+```
+  
+##### 4.添加混淆文件  
+
+如果你启用了混淆，请在你的 proguard-rules.pro 中加入如下代码：  
+
+```
+# GrowingIO 混淆文件
+-keep class com.growingio.** {
+    *;
+}
+-dontwarn com.growingio.**
+-keepnames class * extends android.view.View
+-keepnames class * extends android.app.Fragment
+-keepnames class * extends android.support.v4.app.Fragment
+-keepnames class * extends androidx.fragment.app.Fragment
+-keep class android.support.v4.view.ViewPager{
+    *;
+}
+-keep class android.support.v4.view.ViewPager$**{
+	  *;
+}
+-keep class androidx.viewpager.widget.ViewPager{
+    *;
+}
+-keep class androidx.viewpager.widget.ViewPager$**{
+	  *;
+}
+```
 
 #### Windows
 [Read it! :D](https://github.com/ReactWindows/react-native)
@@ -54,11 +150,29 @@ RNGrowingCdp;
 
 ### 1 初始化配置
 
-在对应原生工程里面进行初始化配置
+#### Android 初始化配置API说明
+初始化配置 API 在 Application 中初始化 GIO SDK 出使用。  
+
+| API                | 默认值   | 是否必填 | 说明                                                                                                                           |
+|--------------------|-------|------|------------------------------------------------------------------------------------------------------------------------------|
+| setProjectId       | 无     | 是    | 设置 Project ID                                                                                                                |
+| setDataSourceId    | 无     | 是    | 设置数据源 ID ；不同的部门看不同的数据，是企业数据平台的最基础的功能需求为了实现这个功能，计划在CDP产品中增加数据源ID的概念，每个事件在上报的时候，都需要指定一个数据源ID后续会根据数据源ID来定义每个用户能够查看、使用哪些事件、标签的数据 |
+| setURLScheme       | 无     | 是    | 设置 URLScheme , 是应用唯一标识                                                                                                       |
+| setDebugMode       | false | 否    | 在Logcat中输出采集日志                                                                                                               |
+| setTestMode        | false | 否    | 实时发送数据，开启则不遵循移动网络状态下数据发送大小默认 3M 限制以及采集数据缓存30秒发送策略。为了方便开发者查看日志，一般和setDebugMode一起使用。                                           |
+| setChannel         | 无     | 否    | 设置App下载渠道                                                                                                                    |
+| setImeiEnable      | true  | 否    | 为了海外应用市场上架应用，设置为 false 则 SDK 不采集 imei 。                                                                                      |
+| setAndroidIdEnable | true  | 否    | 为了海外应用市场上架应用，设置为 false 则 SDK 不采集 Android ID 。                                                                                |
+
+
+
+#### 示例代码
+
+在对应原生工程里面进行初始化配置,代码示例如下
 
 [Android](https://github.com/growingio/react-native-growing-cdp/tree/master/example/android)
 
-[iOS](https://github.com/growingio/react-native-growing-cdp/tree/master/example/ios)
+[iOS](https://github.com/growingio/react-native-growing-cdp/tree/master/example/ios) 
 
 ---
 
@@ -76,8 +190,6 @@ RNGrowingCdp;
 ```javascript
 NativeModules.GrowingCDP.sdkVersion()
 ```
-
----
 
 ---
 
@@ -269,4 +381,5 @@ NativeModules.GrowingCDP.getVisitUserId()
 NativeModules.GrowingCDP.getSessionId()
 ```
 
----
+---    
+
