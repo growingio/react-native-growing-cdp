@@ -53,8 +53,7 @@ RCT_REMAP_METHOD(sdkVersion,
                 rejecter:(RCTPromiseRejectBlock)reject) {
     
     NSString *version = [Growing sdkVersion];
-    NSDictionary *data = @{@"version": version};
-    resolve(data);
+    resolve(version);
 }
 
 RCT_REMAP_METHOD(getDeviceId,
@@ -62,8 +61,7 @@ RCT_REMAP_METHOD(getDeviceId,
                 rejecter:(RCTPromiseRejectBlock)reject) {
     
     NSString *deviceId = [Growing getDeviceId];
-    NSDictionary *data = @{@"deviceId": deviceId};
-    resolve(data);
+    resolve(deviceId);
 }
 
 RCT_REMAP_METHOD(getVisitUserId,
@@ -71,8 +69,7 @@ RCT_REMAP_METHOD(getVisitUserId,
                 rejecter:(RCTPromiseRejectBlock)reject) {
     
     NSString *visitUserId = [Growing getVisitUserId];
-    NSDictionary *data = @{@"visitUserId": visitUserId};
-    resolve(data);
+    resolve(visitUserId);
 }
 
 RCT_REMAP_METHOD(getSessionId,
@@ -80,8 +77,7 @@ RCT_REMAP_METHOD(getSessionId,
                 rejecter:(RCTPromiseRejectBlock)reject) {
     
     NSString *sessionId = [Growing getSessionId];
-    NSDictionary *data = @{@"sessionId": sessionId};
-    resolve(data);
+    resolve(sessionId);
 }
 
 #pragma mark 数据采集发送API
