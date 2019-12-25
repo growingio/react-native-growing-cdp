@@ -154,7 +154,7 @@ public class MainApplication extends Application implements ReactApplication {
 
 在对应原生工程里面进行初始化配置,代码示例如下
 
-[Android](https://github.com/growingio/react-native-growing-cdp/tree/master/example/android)
+[Android MainApplication](https://github.com/growingio/react-native-growing-cdp/tree/master/example/android/app/src/main/java/com/growingreactnativecdp/MainApplication.java)
 
 [iOS](https://github.com/growingio/react-native-growing-cdp/tree/master/example/ios) 
 
