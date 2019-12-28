@@ -161,6 +161,29 @@ public class MainApplication extends Application implements ReactApplication {
 1. iOS 需要手动在工程中添加 URL Scheme, 这个 URL Scheme 是[创建应用](https://docs.growingio.com/docs/product-manual/sysmanage/projectmange/application-manage#chuang-jian-ying-yong)时生成的
 
 ![iOS URL Scheme](media/ios_url_scheme.png)
+
+2. iOS 原生工程的Podfile文件中添加 pod 'RNGrowingCdp', :podspec => '../node_modules/react-native-growing-cdp/RNGrowingCdp.podspec'
+   然后执行 **pod install**
+
+3. 初始化SDK
+ 
+ 在iOS原生工程的 `AppDelegate` 文件 引入头文件 `#import <RNGrowingCdp.h>`。在 **didFinishLaunchingWithOptions** 方法中初识SDK，设置相应初始化配置。
+
+```objc
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+  
+  [RNGrowingCdp startWithProjectId:@"YOUR_PROJECT_ID" dataSourceId:@"YOUR_DATASOURCE_ID"];
+  [RNGrowingCdp setEnableDebugMode:YES];
+  
+//  [RNGrowingCdp setTrackerHost:@"http://www.growingio.com"];
+// [RNGrowingCdp setFlushInterval:10];
+//  [RNGrowingCdp setDailyDataLimit:10]; // setting 10KB data limit
+  
+  return YES;
+}
+
+```
 ---
 
 ### 2 获取SDK版本

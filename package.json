@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-growing-cdp",
-  "version": "1.0.0",
+  "version": "1.0.0-beta",
   "description": "Growing CDP for React Native",
   "main": "index.js",
   "scripts": {
