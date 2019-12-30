@@ -48,7 +48,8 @@ public class MainApplication extends Application implements ReactApplication {
   public List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-        // 此处加入GrowingIO Package
+	  
+        //*1. 此处加入GrowingIO Package
           new GrowingIOPackage()
     );
   }
@@ -56,7 +57,8 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
-      // 在 onCreate 方法中初始化 GIO SDK
+    
+      //*2. 在 onCreate 方法中初始化 GIO SDK（别忘记上一步，添加 GrowingIOPackage）
       GrowingIO.startWithConfiguration(this, new Configuration()
                       .setProjectId("您的项目ID")
                       .setURLScheme("您的 URL Scheme")
