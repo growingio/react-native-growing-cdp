@@ -9,15 +9,6 @@
 
 `$ react-native link react-native-growing-cdp`
 
-### Manual installation
-
-
-#### iOS
-
-1. 在Podfile 文件中添加 **pod 'RNGrowingCdp', :podspec => '../node_modules/react-native-growing-cdp/RNGrowingCdp.podspec'** 
-2. 在Podfile 同级目录中 执行 **pod install**
-3. 打开目录下的 YOUR_PROJECT.xcworkspace 
-
 #### Android 集成步骤  
 
 > 说明：  
@@ -149,21 +140,13 @@ public class MainApplication extends Application implements ReactApplication {
 | setAndroidIdEnable | true  | 否    | 为了海外应用市场上架应用，设置为 false 则 SDK 不采集 Android ID 。                                                                                |
 
 
-
-#### 示例代码
-
-在对应原生工程里面进行初始化配置,代码示例如下
-
-[Android MainApplication](https://github.com/growingio/react-native-growing-cdp/tree/master/example/android/app/src/main/java/com/growingreactnativecdp/MainApplication.java)
-
-[iOS](https://github.com/growingio/react-native-growing-cdp/tree/master/example/ios) 
+### iOS 集成步骤
 
 1. iOS 需要手动在工程中添加 URL Scheme, 这个 URL Scheme 是[创建应用](https://docs.growingio.com/docs/product-manual/sysmanage/projectmange/application-manage#chuang-jian-ying-yong)时生成的
 
 ![iOS URL Scheme](media/ios_url_scheme.png)
 
-2. iOS 原生工程的Podfile文件中添加 pod 'RNGrowingCdp', :podspec => '../node_modules/react-native-growing-cdp/RNGrowingCdp.podspec'
-   然后执行 **pod install**
+2. 如果没有执行 `react-native link react-native-growing-cdp` ，需要在原生工程的Podfile文件中添加 pod 'RNGrowingCdp', :path => '../node_modules/react-native-growing-cdp' **pod install**
 
 3. 初始化SDK
  
